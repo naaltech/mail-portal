@@ -4,12 +4,18 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ogr.nevzatayazal.k12.tr'),
   title: 'Nevzat Ayaz Anadolu Lisesi',
   description: 'Nevzat Ayaz Anadolu Lisesi öğrenci e-posta sistemi',
   keywords: 'Nevzat Ayaz Anadolu Lisesi, e-posta sistemi, okul websitesi',
   authors: [{ name: 'Nevzat Ayaz Anadolu Lisesi' }],
   creator: 'Nevzat Ayaz Anadolu Lisesi',
   publisher: 'Nevzat Ayaz Anadolu Lisesi',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  }
 }
 
 export default function RootLayout({
