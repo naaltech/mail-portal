@@ -25,7 +25,7 @@ const translations = {
       description: "Okul topluluğu ile bağlantı kurun",
       button: "Nevzat Ayaz Etkileşim Ağına Git"
     },
-    footer: `© ${new Date().getFullYear()} Nevzat Ayaz Anadolu Lisesi - Tüm hakları saklıdır`
+    footer: `© ${new Date().getFullYear()} Nevzat Ayaz Anadolu Lisesi - Bu proje GPLv3 ile lisanslanmıştır.`
   },
   en: {
     schoolName: "Nevzat Ayaz Anatolian High School",
@@ -45,7 +45,7 @@ const translations = {
       description: "Connect with the school community",
       button: "Go to Nevzat Ayaz Network"
     },
-    footer: `© ${new Date().getFullYear()} Nevzat Ayaz Anatolian High School - All rights reserved`
+    footer: `© ${new Date().getFullYear()} Nevzat Ayaz Anatolian High School - This project is licensed under GPLv3.`
   }
 }
 
