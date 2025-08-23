@@ -25,7 +25,8 @@ const translations = {
       description: "Okul topluluğu ile bağlantı kurun",
       button: "Nevzat Ayaz Etkileşim Ağına Git"
     },
-    footer: `© ${new Date().getFullYear()} Nevzat Ayaz Anadolu Lisesi - Bu proje GPLv3 ile lisanslanmıştır.`
+    footer: `© ${new Date().getFullYear()} Nevzat Ayaz Anadolu Lisesi - Bu proje GPLv3 ile lisanslanmıştır.`,
+    opensource: `Açık Kaynak`
   },
   en: {
     schoolName: "Nevzat Ayaz Anatolian High School",
@@ -45,7 +46,8 @@ const translations = {
       description: "Connect with the school community",
       button: "Go to Nevzat Ayaz Network"
     },
-    footer: `© ${new Date().getFullYear()} Nevzat Ayaz Anatolian High School - This project is licensed under GPLv3.`
+    footer: `© ${new Date().getFullYear()} Nevzat Ayaz Anatolian High School - This project is licensed under GPLv3.`,
+    opensource: `Open Source`
   }
 }
 
@@ -151,6 +153,7 @@ export default function Component() {
         {/* Footer */}
         <div className="text-center text-gray-600 text-sm mt-12 pb-8">
           <p>{t.footer}</p>
+          <p>{t.opensource}: <a href="https://github.com/naaltech/mail-portal">GitHub</a></p>
         </div>
 
       </div>
