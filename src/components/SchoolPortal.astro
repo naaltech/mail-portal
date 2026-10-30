@@ -1,0 +1,104 @@
+---
+import GlobeAltIcon from "heroicons/24/outline/globe-alt.svg"
+import LanguageIcon from "heroicons/24/outline/language.svg"
+import UsersIcon from "heroicons/24/outline/users.svg"
+
+import Button from "@/components/ui/Button.astro"
+import Card from "@/components/ui/card/Card.astro"
+import CardContent from "@/components/ui/card/CardContent.astro"
+import CardDescription from "@/components/ui/card/CardDescription.astro"
+import CardHeader from "@/components/ui/card/CardHeader.astro"
+import CardTitle from "@/components/ui/card/CardTitle.astro"
+import { translations } from "@/lib/translations"
+
+const t = translations.tr
+---
+
+<div class="min-h-screen bg-gray-50 p-4">
+  <div class="max-w-4xl mx-auto space-y-8">
+    {/* Language Toggle */}
+    <div class="flex justify-end pt-4">
+      <Button variant="outline" size="sm" class="flex items-center gap-2" data-language-toggle>
+        <LanguageIcon class="w-4 h-4" stroke-width="2" />
+        <span data-i18n="toggle">{t.toggle}</span>
+      </Button>
+    </div>
+
+    {/* Header Section */}
+    <div class="text-center space-y-4 pt-8">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900" data-i18n="schoolName">{t.schoolName}</h1>
+      <h2 class="text-2xl md:text-3xl font-semibold" style="color: #00a5d4" data-i18n="subtitle">{t.subtitle}</h2>
+    </div>
+
+    {/* Cards Section */}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+      {/* Okul Websitesi Card */}
+      <Card class="bg-white hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-gray-300 flex flex-col h-full">
+        <CardHeader class="text-center pb-4 flex-1">
+          <div class="mx-auto w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+            <GlobeAltIcon class="w-8 h-8 text-gray-600" stroke-width="2" />
+          </div>
+          <CardTitle class="text-xl font-semibold text-gray-900" data-i18n="websiteTitle">{t.websiteTitle}</CardTitle>
+          <CardDescription class="text-gray-600" data-i18n="websiteDescription">{t.websiteDescription}</CardDescription>
+        </CardHeader>
+        <CardContent class="pt-0 mt-auto">
+          <Button
+            href="https://nevzatayazal.meb.k12.tr/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full bg-gray-600 hover:bg-gray-700 text-white font-medium py-3 h-12"
+            data-i18n="websiteButton"
+          >
+            {t.websiteButton}
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* Etkileşim Ağı Card */}
+      <Card class="bg-white hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-gray-300 flex flex-col h-full">
+        <CardHeader class="text-center pb-4 flex-1">
+          <div class="mx-auto w-16 h-16 rounded-full flex items-center justify-center mb-4" style="background-color: #00a5d4">
+            <UsersIcon class="w-8 h-8 text-white" stroke-width="2" />
+          </div>
+          <CardTitle class="text-xl font-semibold text-gray-900" data-i18n="networkTitle">{t.networkTitle}</CardTitle>
+          <CardDescription class="text-gray-600" data-i18n="networkDescription">{t.networkDescription}</CardDescription>
+        </CardHeader>
+        <CardContent class="pt-0 mt-auto">
+          <Button
+            href="https://naal.org.tr"
+            class="w-full text-white font-medium py-3 h-12"
+            style="background-color: #00a5d4"
+            data-i18n="networkButton"
+          >
+            {t.networkButton}
+          </Button>
+        </CardContent>
+      </Card>
+    </div>
+
+    {/* Footer */}
+    <div class="text-center text-gray-600 text-sm mt-12 pb-8">
+      <p data-i18n="footer">{t.footer}</p>
+      <p><span data-i18n="opensource">{t.opensource}</span>: <a href="https://github.com/naaltech/mail-portal">GitHub</a></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { translations, type Language, type TranslationKey } from "@/lib/translations"
+
+  let language: Language = "tr"
+
+  function render() {
+    document.querySelectorAll<HTMLElement>("[data-i18n]").forEach((element) => {
+      element.textContent = translations[language][element.dataset.i18n as TranslationKey]
+    })
+  }
+
+  document.querySelector("[data-language-toggle]")?.addEventListener("click", () => {
+    language = language === "tr" ? "en" : "tr"
+    render()
+  })
+
+  render()
+</script>

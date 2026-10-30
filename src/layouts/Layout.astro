@@ -1,0 +1,26 @@
+---
+import '@fontsource-variable/geist'
+import '@/styles/globals.css'
+
+const name = 'Nevzat Ayaz Anadolu Lisesi'
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{name}</title>
+    <meta name="description" content="Nevzat Ayaz Anadolu Lisesi öğrenci e-posta sistemi" />
+    <meta name="keywords" content="Nevzat Ayaz Anadolu Lisesi, e-posta sistemi, okul websitesi" />
+    <meta name="author" content={name} />
+    <meta name="creator" content={name} />
+    <meta name="publisher" content={name} />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

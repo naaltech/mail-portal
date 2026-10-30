@@ -1,7 +1,7 @@
-import * as React from "react"
+---
+import type { HTMLAttributes } from "astro/types"
 import { cva, type VariantProps } from "class-variance-authority"
 
-import { Slot } from "@/components/ui/slot"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
@@ -35,25 +35,17 @@ const buttonVariants = cva(
   }
 )
 
-function Button({
-  className,
-  variant,
-  size,
-  asChild = false,
-  ...props
-}: React.ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants> & {
-    asChild?: boolean
-  }) {
-  const Comp = asChild ? Slot : "button"
+type Props = (HTMLAttributes<"button"> | HTMLAttributes<"a">) &
+  VariantProps<typeof buttonVariants>
 
-  return (
-    <Comp
-      data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
-      {...props}
-    />
+const { class: className, variant, size, ...props } = Astro.props
+const classes = cn(buttonVariants({ variant, size, className }))
+---
+
+{
+  "href" in props ? (
+    <a data-slot="button" class={classes} {...props}><slot /></a>
+  ) : (
+    <button data-slot="button" class={classes} {...props}><slot /></button>
   )
 }
-
-export { Button, buttonVariants }
