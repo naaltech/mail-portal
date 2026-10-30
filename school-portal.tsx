@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Globe, Users, Languages } from 'lucide-react'
+import { GlobeAltIcon, UsersIcon, LanguageIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -56,7 +56,7 @@ export default function Component() {
             onClick={() => setLanguage(language === 'tr' ? 'en' : 'tr')}
             className="flex items-center gap-2"
           >
-            <Languages className="w-4 h-4" />
+            <LanguageIcon className="w-4 h-4" strokeWidth={2} />
             {language === 'tr' ? 'EN' : 'TR'}
           </Button>
         </div>
@@ -77,7 +77,7 @@ export default function Component() {
           <Card className="bg-white hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-gray-300 flex flex-col h-full">
             <CardHeader className="text-center pb-4 flex-1">
               <div className="mx-auto w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
-                <Globe className="w-8 h-8 text-gray-600" />
+                <GlobeAltIcon className="w-8 h-8 text-gray-600" strokeWidth={2} />
               </div>
               <CardTitle className="text-xl font-semibold text-gray-900">
                 {t.website.title}
@@ -99,7 +99,7 @@ export default function Component() {
           <Card className="bg-white hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-gray-300 flex flex-col h-full">
             <CardHeader className="text-center pb-4 flex-1">
               <div className="mx-auto w-16 h-16 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: '#00a5d4' }}>
-                <Users className="w-8 h-8 text-white" />
+                <UsersIcon className="w-8 h-8 text-white" strokeWidth={2} />
               </div>
               <CardTitle className="text-xl font-semibold text-gray-900">
                 {t.network.title}
