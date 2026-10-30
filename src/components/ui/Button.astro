@@ -46,6 +46,6 @@ const classes = cn(buttonVariants({ variant, size, className }))
   "href" in props ? (
     <a data-slot="button" class={classes} {...props}><slot /></a>
   ) : (
-    <button data-slot="button" class={classes} {...props}><slot /></button>
+    <button data-slot="button" class={classes} {...(props as HTMLAttributes<"button">)}><slot /></button>
   )
 }
